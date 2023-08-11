@@ -1,2 +1,5 @@
-*
+UEFI
+Build/
+boot.img
+boot.tar
 !.gitignore

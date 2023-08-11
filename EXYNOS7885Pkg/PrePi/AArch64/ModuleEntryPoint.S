@@ -13,7 +13,6 @@ GCC_ASM_IMPORT (ArmWriteCpacr)
 GCC_ASM_IMPORT (ArmEnableInstructionCache)
 GCC_ASM_IMPORT (ArmEnableDataCache)
 GCC_ASM_IMPORT (ArmInvalidateTlb)
-GCC_ASM_IMPORT (ArmDeInitialize)
 
 GCC_ASM_EXPORT (_ModuleEntryPoint)
 
@@ -28,8 +27,8 @@ _StackSize:
 
 
 _ModuleEntryPoint:
-  /* World reset */
-  bl ASM_PFX(ArmDeInitialize)
+
+  bl ASM_PFX(ArmPlatformPeiBootAction)
   
   mov x0, #0
 
