@@ -195,6 +195,9 @@
 
   MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
 
+  # SoC Drivers
+  EXYNOS7885Pkg/Drivers/SPEEDYDxe/SPEEDYDxe.inf
+
   MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   #

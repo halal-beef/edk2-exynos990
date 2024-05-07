@@ -1,0 +1,43 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SPEEDYDxe
+  FILE_GUID                      = 4e766dcb-a2a5-4d2b-8364-c2ef8f99b0cc
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+
+  ENTRY_POINT                    = SPEEDYDxeInitialize
+
+[Sources.common]
+  SPEEDYDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  EXYNOS7885Pkg/EXYNOS7885Pkg.dec
+
+[LibraryClasses]
+  PcdLib
+  UefiLib
+  UefiDriverEntryPoint
+  MemoryAllocationLib
+  BaseMemoryLib
+  IoLib
+  ArmLib
+  BaseLib
+  DebugLib
+  UefiBootServicesTableLib
+  TimerLib
+  
+[Guids]
+
+[Protocols]
+  gSPEEDYProtocolGuid
+
+[Pcd]
+  gEXYNOS7885PkgTokenSpaceGuid.PcdSPEEDY0Base
+  gEXYNOS7885PkgTokenSpaceGuid.PcdSPEEDY1Base
+
+[depex]
+ TRUE

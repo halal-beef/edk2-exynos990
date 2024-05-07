@@ -27,3 +27,7 @@
   gEXYNOS7885PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gEXYNOS7885PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1440
   gEXYNOS7885PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|3200
+
+  # SPEEDY Protocol
+  gEXYNOS7885PkgTokenSpaceGuid.PcdSPEEDY0Base|0x15940000
+  gEXYNOS7885PkgTokenSpaceGuid.PcdSPEEDY1Base|0x15950000
