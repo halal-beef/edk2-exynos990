@@ -118,9 +118,10 @@
   #
   # ARM General Interrupt Controller
   #
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0x10100000
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x10101000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10102000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
-
+  
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
 
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|0x12

@@ -46,8 +46,7 @@ typedef struct {
 #define RtCode EfiRuntimeServicesCode
 #define MmIO EfiMemoryMappedIO
 
-#define NS_DEVICE ARM_MEMORY_REGION_ATTRIBUTE_DEVICE
-#define DEVICE ARM_MEMORY_REGION_ATTRIBUTE_NONSECURE_DEVICE
+#define DEVICE ARM_MEMORY_REGION_ATTRIBUTE_DEVICE
 #define WRITE_THROUGH ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 #define WRITE_THROUGH_XN ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 #define WRITE_BACK ARM_MEMORY_REGION_ATTRIBUTE_WRITE_BACK
@@ -60,21 +59,46 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
      MemLabel(32 Char.),  MemBase,    MemSize, BuildHob, ResourceType, ResourceAttribute, MemoryType, CacheAttributes
 */
 
-//--------------------- Register ---------------------
-    {"Periphs",           0x00000000, 0x20000000,  AddMem, MEM_RES, UNCACHEABLE,  RtCode,   NS_DEVICE},
+//----------------------- DDR ------------------------
 
-//--------------------- DDR --------------------- */
-
-    {"HLOS 0",            0x80000000, 0x00C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+    {"SEC Debug",         0x80000000, 0x00001000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED},
+    {"HLOS 0",            0x80001000, 0x00BFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
     {"UEFI Stack",        0x80C00000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsData, WRITE_BACK},
     {"CPU Vectors",       0x80C40000, 0x00010000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsCode, WRITE_BACK},
-    {"HLOS 0 Split",      0x80C50000, 0x2AB00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+    {"HLOS 1",            0x80C50000, 0x2AB00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
     {"UEFI FD",           0x90000000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
-    {"HLOS 0 Split 2",    0x90200000, 0xF3B0000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
-    {"HLOS 1",            0xC1200000, 0x3EE00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-    {"HLOS 2",            0xE1900000, 0x1E700000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
-    {"Display Reserved",  0xf1000000, 0x00800000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
-    {"HLOS 3",            0x880000000, 0x280000000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
+    {"HLOS 2",            0x90200000, 0x31000000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
+
+    // Memory Hole: 0xBAB00000 -> 0xC1200000 (0x6700000)
+
+    {"HLOS 3",            0x90200000, 0x01E00000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
+    {"SEC Log",           0xC3000000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
+    {"HLOS 4",            0xC3080000, 0x1CF80000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+
+    // Memory Hole: 0xE0000000 -> 0xE1900000 (0x01900000)
+
+    {"HLOS 5",            0xE1900000, 0x0F700000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
+    {"Display Reserved",  0xF1000000, 0x01194000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
+    {"HLOS 6",            0xF2194000, 0x05E1C000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
+    {"ABOX",              0xF7FB0000, 0x02A50000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
+    {"HLOS 7",            0xFAA00000, 0x05600000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
+
+    // Memory Hole: 0x100000000 -> 0x880000000 (0x780000000)
+
+    {"HLOS 8",            0x880000000, 0x260000000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
+
+//--------------------- Register ---------------------
+
+    {"GIC Distributor",   0x10101000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"GIC Redistributors", 0x10102000, 0x00006000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"PinCtrl 1",         0x10430000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"PinCtrl 2",         0x10730000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"PinCtrl 3",         0x13040000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"PinCtrl 4",         0x15580000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"PinCtrl 5",         0x15850000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"SPEEDY 0",          0x15940000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"SPEEDY 1",          0x15950000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
+    {"PinCtrl 6",         0x15C30000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, DEVICE},
 
     /* Terminator for MMU */
     { "Terminator", 0, 0, 0, 0, 0, 0, 0}};
