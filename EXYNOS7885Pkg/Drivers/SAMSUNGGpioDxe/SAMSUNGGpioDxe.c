@@ -36,9 +36,6 @@ gpio_get(CHAR8 bank, UINT32 bankNumber, UINT32 gpioNumber)
     UINT32 bankOff = (bankOffset * bankNumber) + 0x4;
     UINT32 val = -1;
 
-    DEBUG((EFI_D_ERROR, "BANK: %c\nBNUM: 0x%x\nGNUM: 0x%x", bank, bankNumber, gpioNumber));
-
-
     if(bank == 'A') val = (MmioRead32(gpaBase + bankOff) >> gpioNumber) & 0x1;
     else if (bank == 'B') val = (MmioRead32(gpbBase + bankOff) >> gpioNumber) & 0x1;
     else if (bank == 'C') val = (MmioRead32(gpcBase + bankOff) >> gpioNumber) & 0x1;
@@ -49,7 +46,7 @@ gpio_get(CHAR8 bank, UINT32 bankNumber, UINT32 gpioNumber)
     else if (bank == 'Q') val = (MmioRead32(gpqBase + bankOff) >> gpioNumber) & 0x1;
     else if (bank == 'V') val = (MmioRead32(gpvBase + bankOff) >> gpioNumber) & 0x1;
 
-if(val == -1) DEBUG((EFI_D_ERROR, "Error Reading GPIO\n"));
+    if(val == -1) DEBUG((EFI_D_ERROR, "Error Reading GPIO\n"));
 
     return val;
 }
