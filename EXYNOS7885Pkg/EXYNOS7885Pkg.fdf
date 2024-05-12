@@ -124,12 +124,9 @@ READ_LOCK_STATUS   = TRUE
 
   # SoC Drivers
   INF EXYNOS7885Pkg/Drivers/SPEEDYDxe/SPEEDYDxe.inf
+  INF EXYNOS7885Pkg/Drivers/SAMSUNGGpioDxe/SAMSUNGGpioDxe.inf
 
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-
-  #
-  # GPIO
-  #
 
   #
   # Virtual Keyboard

@@ -31,3 +31,15 @@
   # SPEEDY Protocol
   gEXYNOS7885PkgTokenSpaceGuid.PcdSPEEDY0Base|0x15940000
   gEXYNOS7885PkgTokenSpaceGuid.PcdSPEEDY1Base|0x15950000
+
+  # Samsung GPIO Protocol
+  gEXYNOS7885PkgTokenSpaceGuid.BankOffset|0x20
+  gEXYNOS7885PkgTokenSpaceGuid.GpaBase|0x15850000
+  gEXYNOS7885PkgTokenSpaceGuid.GpbBase|0x10730000
+  gEXYNOS7885PkgTokenSpaceGuid.GpcBase|0x10730000
+  gEXYNOS7885PkgTokenSpaceGuid.GpfBase|0x13040000
+  gEXYNOS7885PkgTokenSpaceGuid.GpgBase|0x10430000
+  gEXYNOS7885PkgTokenSpaceGuid.GpmBase|0x15C30000
+  gEXYNOS7885PkgTokenSpaceGuid.GppBase|0x10430000
+  gEXYNOS7885PkgTokenSpaceGuid.GpqBase|0x15850000
+  gEXYNOS7885PkgTokenSpaceGuid.GpvBase|0x15580000

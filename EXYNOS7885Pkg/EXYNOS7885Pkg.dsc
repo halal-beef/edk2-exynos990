@@ -205,6 +205,7 @@
 
   # SoC Drivers
   EXYNOS7885Pkg/Drivers/SPEEDYDxe/SPEEDYDxe.inf
+  EXYNOS7885Pkg/Drivers/SAMSUNGGpioDxe/SAMSUNGGpioDxe.inf
 
   MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
