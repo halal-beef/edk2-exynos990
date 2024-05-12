@@ -78,6 +78,9 @@
   # SimpleFbDxe
   FrameBufferBltLib|EXYNOS7885Pkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
 
+  # Keys
+  KeypadDeviceImplLib|EXYNOS7885Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
+
 !if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
   SerialPortLib|EXYNOS7885Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !else
@@ -221,6 +224,12 @@
   EXYNOS7885Pkg/Drivers/EXYNOS7885PkgDxe/EXYNOS7885PkgDxe.inf
   EXYNOS7885Pkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
   EXYNOS7885Pkg/Drivers/LogoDxe/LogoDxe.inf
+
+  #
+  # Keys
+  #
+  EXYNOS7885Pkg/Drivers/KeypadDxe/KeypadDxe.inf
+  EXYNOS7885Pkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
 
   #
   # USB Host Support

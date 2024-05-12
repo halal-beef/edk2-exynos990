@@ -520,7 +520,7 @@ PlatformBootManagerBeforeConsole (
   // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
   // on them to ConIn.
   //
-  FilterAndProcess (&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
+  FilterAndProcess (&gSAMSUNGKeypadDeviceProtocolGuid, NULL, AddInput);
   // Register setup key then
   PlatformRegisterSetupKey();
 

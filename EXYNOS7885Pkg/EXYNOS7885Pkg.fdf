@@ -141,6 +141,12 @@ READ_LOCK_STATUS   = TRUE
   INF EXYNOS7885Pkg/Drivers/LogoDxe/LogoDxe.inf
 
   #
+  # Keys
+  #
+  INF EXYNOS7885Pkg/Drivers/KeypadDxe/KeypadDxe.inf
+  INF EXYNOS7885Pkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
+
+  #
   # USB Host Support
   #
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
