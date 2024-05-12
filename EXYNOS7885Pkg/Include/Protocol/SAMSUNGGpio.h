@@ -17,7 +17,7 @@ typedef struct _SAMSUNG_GPIO SAMSUNG_GPIO;
 typedef
 UINT32
 (*GPIO_GET)(
-  CHAR8 *bank, UINT32 bankNumber, UINT32 gpioNumber
+  CHAR8 bank, UINT32 bankNumber, UINT32 gpioNumber
   );
 
 struct _SAMSUNG_GPIO {
