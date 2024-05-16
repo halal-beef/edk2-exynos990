@@ -26,6 +26,8 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = EXYNOS7885Pkg/EXYNOS7885Pkg.fdf
 
+  DEFINE USE_SCREEN_FOR_SERIAL_OUTPUT = 1
+
 !include EXYNOS7885Pkg/CommonDsc.dsc.inc
 
 [LibraryClasses]
@@ -76,7 +78,11 @@
   # SimpleFbDxe
   FrameBufferBltLib|EXYNOS7885Pkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
 
+!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
   SerialPortLib|EXYNOS7885Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+!else
+  SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
+!endif
   PlatformBootManagerLib|EXYNOS7885Pkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
   MemoryInitPeiLib|EXYNOS7885Pkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
   PlatformPeiLib|EXYNOS7885Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
