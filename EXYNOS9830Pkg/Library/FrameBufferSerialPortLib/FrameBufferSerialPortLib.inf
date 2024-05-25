@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = FrameBufferSerialPortLib
+  MODULE_TYPE    = BASE
+  VERSION_STRING = 1.0
+  LIBRARY_CLASS  = SerialPortLib
+
+[Sources.common]
+  FrameBufferSerialPortLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  EXYNOS9830Pkg/EXYNOS9830Pkg.dec
+
+[LibraryClasses]
+  ArmLib
+  PcdLib
+  IoLib
+  HobLib
+  CompilerIntrinsicsLib
+  CacheMaintenanceLib
+
+[Pcd]
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferAddress
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferWidth
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferHeight
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight

@@ -1,0 +1,53 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SAMSUNGGpioDxe
+  FILE_GUID                      = A9AE7F06-35A1-40AF-A894-7CF3BA488B2F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SAMSUNGGpioDxeInitialize
+
+[Sources.common]
+  SAMSUNGGpioDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  EXYNOS9830Pkg/EXYNOS9830Pkg.dec
+
+[LibraryClasses]
+  PcdLib
+  UefiLib
+  UefiDriverEntryPoint
+  MemoryAllocationLib
+  BaseMemoryLib
+  IoLib
+  ArmLib
+  BaseLib
+  DebugLib
+  UefiBootServicesTableLib
+
+[Guids]
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+  gEfiCpuArchProtocolGuid
+  gEfiDevicePathProtocolGuid
+  gSAMSUNGGpioProtocolGuid
+
+[Pcd]
+gEXYNOS9830PkgTokenSpaceGuid.BankOffset
+gEXYNOS9830PkgTokenSpaceGuid.GpaBase
+gEXYNOS9830PkgTokenSpaceGuid.GpbBase
+gEXYNOS9830PkgTokenSpaceGuid.GpcBase
+gEXYNOS9830PkgTokenSpaceGuid.GpfBase
+gEXYNOS9830PkgTokenSpaceGuid.GpgBase
+gEXYNOS9830PkgTokenSpaceGuid.GpmBase
+gEXYNOS9830PkgTokenSpaceGuid.GppBase
+gEXYNOS9830PkgTokenSpaceGuid.GpqBase
+gEXYNOS9830PkgTokenSpaceGuid.GpvBase
+
+[depex]
+ TRUE
