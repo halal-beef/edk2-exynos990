@@ -26,11 +26,11 @@ sudo apt install build-essential uuid-dev iasl git nasm python3-distutils gcc-aa
 
 Also see [EDK2 website](https://github.com/tianocore/tianocore.github.io/wiki/Using-EDK-II-with-Native-GCC#Install_required_software_from_apt)
 
-## Tutorials
+Run ```sh 
+./firstrun.sh``` to setup the environment for development.
 
-First run ./firstrun.sh
-
-Then, ./build.sh.
+Then run ```sh
+./build.sh``` to then initiate the build.
 
 This should make a boot.tar image to be flashed in ODIN, you can also use the boot.img produced in heimdall as well.
 
