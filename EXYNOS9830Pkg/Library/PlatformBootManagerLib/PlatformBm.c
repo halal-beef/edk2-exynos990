@@ -312,7 +312,7 @@ AddOutput (
     ReportText));
 }
 
-STATIC
+/*STATIC
 VOID
 EFIAPI
 AddInput (
@@ -339,7 +339,7 @@ AddInput (
 
   DEBUG ((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
     ReportText));
-}
+}*/
 
 STATIC
 INTN
@@ -520,7 +520,7 @@ PlatformBootManagerBeforeConsole (
   // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
   // on them to ConIn.
   //
-  FilterAndProcess (&gSAMSUNGKeypadDeviceProtocolGuid, NULL, AddInput);
+  //FilterAndProcess (&gSAMSUNGKeypadDeviceProtocolGuid, NULL, AddInput);
   // Register setup key then
   PlatformRegisterSetupKey();
 
@@ -591,6 +591,13 @@ PlatformBootManagerAfterConsole (
   }
 
   EfiBootManagerRefreshAllBootOption ();
+
+  //	
+  // Register UEFI Shell	
+  //	
+  PlatformRegisterFvBootOption (	
+    &gUefiShellFileGuid, L"UEFI Shell", LOAD_OPTION_ACTIVE	
+  );	
 
   PlatformRegisterOptionsAndKeys ();
 }

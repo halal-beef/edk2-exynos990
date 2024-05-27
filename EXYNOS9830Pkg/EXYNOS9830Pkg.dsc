@@ -156,14 +156,14 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiExposedTableVersions|0x20
 
   [PcdsDynamicDefault.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0 # /8 = column
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0 #/19 = row
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|0
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|0
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|0
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|0
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|0
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440 # /8 = column
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|3200 #/19 = row
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1440
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|3200
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|180
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|168
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|168
 ################################################################################
 #
 # Components Section - list of all EDK II Modules needed by this Platform
@@ -261,6 +261,13 @@
   MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   FatPkg/EnhancedFatDxe/Fat.inf
+
+  #
+  # Ramdisk
+  #
+  EXYNOS9830Pkg/Drivers/BootRamDiskHelperDxe/BootRamDiskHelperDxe.inf 
+  MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf
+  MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   #
   # ACPI Support
