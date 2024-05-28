@@ -22,7 +22,7 @@
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80C40000
 
   # Framebuffer (1440x3200)
-  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x0f1000000
+  gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x0F1000000
   gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
   gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gEXYNOS9830PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1440
